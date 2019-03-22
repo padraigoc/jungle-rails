@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Thank you for ordering!</h1>
+
+  <p>
+    You have ordered: 
+  </p>
+
+     <%= @order.line_items.each do |item| %>
+       <%= render 'item',
+      name: Product.where(["id = ?", item.product_id])[0].name,
+       desc: Product.where(["id = ?", item.product_id])[0].description,
+       image: Product.where(["id = ?", item.product_id])[0].image,
+       quantity: item[:quantity] %>
+      <% end %>
+
+       <h4>Total: $<%= @order.total_cents/100.0 %> </h4>
+  
+  
+  <p>Thanks for ordering and have a great day!</p>
+
+</body>
+</html>
+

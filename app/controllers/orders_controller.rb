@@ -54,6 +54,8 @@ class OrdersController < ApplicationController
       )
     end
     order.save!
+    #send e-mail to user
+    UserMailer.order_confirmation_email(current_user, order).deliver
     order
   end
 
