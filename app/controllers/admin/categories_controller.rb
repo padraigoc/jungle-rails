@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  http_basic_authenticate_with name: ENV["ADMIN_EMAIL"], password: ENV["ADMIN_PASSWORD"] 
+  http_basic_authenticate_with :name => ENV["ADMIN_EMAIL"], :password => ENV["ADMIN_PASSWORD"] 
 
 
     # GET /admin/categories (action) #references Category class

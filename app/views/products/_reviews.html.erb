@@ -1,0 +1,10 @@
+<div class='list-reviews'>
+    <h4>Customer reviews:</h4>
+    <ul>
+      <% @reviews.each do |review| %>
+        <li class="review"><%= User.where(id: review.user_id).first.name %> rates this <%= review.rating %>/5
+        <br>
+        "<%= review.description %>"
+      <% end %>
+    </ul>
+  </div>

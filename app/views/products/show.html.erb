@@ -30,6 +30,7 @@
   </article>
 
 
+  <% if current_user %>
   <div class='write-review'> 
     <h4>Write a review</h4>
 
@@ -50,9 +51,13 @@
   <%= form.submit "Post", class: 'btn btn-primary' %>
       <% end %>
     </div> 
+    <% end %>
 
 
-  <div class='list-reviews'>
+    <% if @reviews == nil %>
+    <p> No review yet </p>
+    <% else %>
+    <div class='write-review'> 
     <h4>Customer reviews:</h4>
     <ul>
       <% @reviews.each do |review| %>
@@ -61,6 +66,9 @@
         "<%= review.description %>"
       <% end %>
     </ul>
-  </div>
+    </div>
+    <% end %>
+
+    
 
 </section>
